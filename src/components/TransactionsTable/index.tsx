@@ -17,8 +17,8 @@ export function TransactionTable() {
               <tbody>
                   <tr>
 
-                  <td> Desenvolvimento de website</td>
-                  <td> R$12.000</td>
+                  <td className="title"> Desenvolvimento de website</td>
+                  <td  className="deposit"> R$12.000</td>
                   <td> Desenvolvimento</td>
                   <td> 20/01/2022</td>
 
@@ -26,8 +26,8 @@ export function TransactionTable() {
 
                   <tr>
 
-                  <td> Desenvolvimento de website</td>
-                  <td> R$12.000</td>
+                  <td className="title"> Desenvolvimento de website</td>
+                  <td  className="deposit"> R$2.000</td>
                   <td> Desenvolvimento</td>
                   <td> 20/01/2022</td>
 
@@ -35,9 +35,9 @@ export function TransactionTable() {
 
                   <tr>
 
-                  <td> Desenvolvimento de website</td>
-                  <td> R$12.000</td>
-                  <td> Desenvolvimento</td>
+                  <td className="title"> Aluguel</td>
+                  <td className="withdraw"> - R$1.000</td>
+                  <td> Casa </td>
                   <td> 20/01/2022</td>
 
                   </tr>
