@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {App} from './App';
 
-
 createServer({
   routes() {
     this.namespace = 'api';
@@ -18,6 +17,11 @@ createServer({
           createAt: new Date()
         }
       ]
+    })
+
+    this.post('/transactions', (schema, request) => {
+        const data = JSON.parse(request.requestBody);
+        return data;
     })
   }
 })
