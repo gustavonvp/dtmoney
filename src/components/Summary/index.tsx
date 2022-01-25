@@ -16,7 +16,7 @@ return(
          {/* <TransactionsContext.Consumer>
              {
                  (data) => {
-                    
+                                                    //
                         console.log(data)
                         return(<p>ok</p>) 
                  }
