@@ -6,13 +6,14 @@ import { TransactionsContext } from "../../TransactionsContext";
 import { useContext } from "react";
 
 export function Summary() {
-    const data = useContext(TransactionsContext);
+    const transactions = useContext(TransactionsContext);
 
-    console.log(data);
+    console.log(transactions);
     
-    return(
-        <Container>
-         <TransactionsContext.Consumer>
+return(
+    <Container>
+
+         {/* <TransactionsContext.Consumer>
              {
                  (data) => {
                     
@@ -20,11 +21,7 @@ export function Summary() {
                         return(<p>ok</p>) 
                  }
              }
-             
-             
-        </TransactionsContext.Consumer>       
-
-
+        </TransactionsContext.Consumer>        */}
         <div>
         <header>
             <p>Entradas</p> 
