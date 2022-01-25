@@ -14,14 +14,14 @@ interface Transaction {
 
 
 export function TransactionTable() {
-    const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-    useEffect(() => {
-      api('transactions')
-      .then(response => setTransactions(response.data.transactions))
-    }, [])
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
 
-
+  useEffect(() => {
+    api('transactions')
+    .then(response => setTransactions(response.data.transactions))
+  }, []);
+   
     return(
         <Container>
           <table>
