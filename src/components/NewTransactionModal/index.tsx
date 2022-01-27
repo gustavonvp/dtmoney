@@ -4,7 +4,6 @@ import closeImg from '../../assets/close.svg';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import { FormEvent, useContext, useState } from 'react';
-import { api } from '../../services/api';
 import { TransactionsContext } from '../../TransactionsContext';
 
 interface NewTransactionModalProps {
@@ -21,15 +20,21 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
     const [category,setCategory] = useState('');
     const [type, setType] = useState('deposit');
 
-    function handleCreateNewTransaction(event: FormEvent) {
+    async function handleCreateNewTransaction(event: FormEvent) {
             event.preventDefault();
 
-            createTransaction({
+            await createTransaction({
                 title,
                 amount,
                 category,
                 type,
             })
+
+            setTitle('');
+            setAmount(0);
+            setCategory('');
+            setType('deposit');
+            onRequestClose();
 
     
     }
@@ -64,15 +69,15 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
                 type="number"
                 placeholder="Valor"
                 value={amount}
-                onChange={event => setAmount(+event.target.value)} //conversion to number only on js and typescript
+                onChange={event => setAmount(Number(event.target.value))} //conversion to number only on js and typescript
             />
 
             <TransactionTypeContainer>
                 <RadioBox 
                     type="button"
                     // className={type === 'deposit' ? 'active' : ''}
-                    onClick={() => {setType('deposit')}}
-                    isActive={type === 'deposit'}
+                    onClick={() => {setType("deposit")}}
+                    isActive={type === "deposit"}
                     activeColor='green'
                 > 
                         <img src={incomeImg} alt="Entrada" />
@@ -81,9 +86,9 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
 
                 <RadioBox 
                     type="button"
-                    onClick={() => {setType('widthdraw')}}
-                    isActive={type === 'widthdraw'}
-                    activeColor='red'
+                    onClick={() => {setType("widthdraw")}}
+                    isActive={type === "widthdraw"}
+                    activeColor="red"
                 >
                         <img src={outcomeImg} alt="Saída" />              
                         <span>Saída</span>

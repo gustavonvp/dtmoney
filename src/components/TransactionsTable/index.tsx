@@ -1,6 +1,5 @@
 import { useContext} from "react";
 import { Container } from "./styles";
-import {api} from "../../services/api";
 import { TransactionsContext } from "../../TransactionsContext";
 
 export function TransactionTable() {
@@ -28,6 +27,7 @@ export function TransactionTable() {
                       style:'currency',
                       currency: 'BRL'
                     }).format(transaction.amount)}</td>
+
                     <td> {transaction.category}</td>
                     <td> 
                         {new Intl.DateTimeFormat('pt-BR').format(
