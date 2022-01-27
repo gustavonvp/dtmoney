@@ -8,6 +8,14 @@ import { useContext } from "react";
 export function Summary() {
     const {transactions} = useContext(TransactionsContext);
 
+    const totalDeposits = transactions.reduce((acc, transaction) => {
+        if(transaction.type === 'deposit') {
+            return acc + transaction.amount;
+        }
+
+        return acc;
+    }, 0)
+
     console.log(transactions);
     
 return(
@@ -27,7 +35,7 @@ return(
             <p>Entradas</p> 
             <img src={incomeImg} alt="Entradas" />
         </header> 
-        <strong>R$1000,00</strong>
+        <strong>{totalDeposits}</strong>
     </div>  
 
     <div>
