@@ -26,7 +26,7 @@ export function NewTransactionModal({isOpen, onRequestClose}: NewTransactionModa
 
             createTransaction({
                 title,
-                amount: amount,
+                amount,
                 category,
                 type,
             })
